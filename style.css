@@ -1,4 +1,4 @@
-/* Common Styles */
+/* 一些基础样式 */
 * {
   margin: 0;
   padding: 0;
@@ -10,117 +10,164 @@
   font-weight: 400;
 }
 
+/* 
+  设置默认字体大小为 62.5% 
+  设置平滑滚动效果
+*/
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
+/* 
+  设置背景颜色为灰色
+  设置右侧留白为 3rem
+*/
 body {
   background-color: #ccc;
   padding-right: 3rem;
 }
 
+
 .center {
+  /* 使用弹性布局 */
   display: flex;
+  /* 在主轴上居中对齐 */
   justify-content: center;
+  /* 在交叉轴上居中对齐 */
   align-items: center;
 }
-/* End of Common Styles */
 
-/* Menu */
+/* 菜单按钮 */
 .menu {
+  /* 设置菜单按钮的宽高为 4rem */
   width: 4rem;
   height: 4rem;
+  /* 固定位置为左上角 */
   position: fixed;
   top: 2rem;
   left: 2rem;
+  /* 设置层级为 10，位于其他元素上方 */
   z-index: 10;
+  /* 垂直排列子元素 */
   flex-direction: column;
+  /* 设置鼠标样式为手型 */
   cursor: pointer;
+  /* 设置过渡效果为 0.5s */
   transition: all 0.5s;
 }
 
 .menu.change {
+  /* 菜单点击后旋转45度 */
   transform: rotate(45deg);
+  /* 菜单点击后距离左侧 15 个 vw（可视区域宽度）*/
   left: 15vw;
 }
 
 .menu-line {
+  /* 宽度占满父元素， 高度为 0.2rem，背景颜色为白色 */
   width: 100%;
   height: 0.2rem;
   background-color: #fff;
+  /* 上下边距为 0.3rem */
   margin: 0.3rem 0;
+  /* 设置阴影效果 */
   box-shadow: 0.1rem 0.1rem 0.3rem #222;
+  /* 设置过渡效果为 0.5s */
   transition: transform 0.5s;
 }
 
+/* 菜单点击后第一条线旋转270度并向左平移0.4rem */
 .change .menu-line-1 {
   transform: rotate(270deg) translateX(-0.4rem);
 }
 
+/* 菜单点击后第二条线旋转360度并向上平移0.4rem */
 .change .menu-line-2 {
   transform: rotate(360deg) translateY(-0.4rem);
 }
-/* End of Menu */
 
-/* Navbar */
+/* 导航栏 */
 .navbar {
+  /* 
+    设置导航栏宽度为 15vw（可视区域宽度），高度为 100vh（可视区域高度），
+    背景颜色为白色 
+  */
   width: 15vw;
   height: 100vh;
   background-color: #fff;
+  /* 固定位置为左上角 */
   position: fixed;
   top: 0;
+  /* 初始时隐藏导航栏 */
   left: -15vw;
+  /* 使用弹性布局， 垂直排列子元素 */
   display: flex;
   flex-direction: column;
+  /* 设置内边距为 4rem 0 0 4rem */
   padding: 4rem 0 0 4rem;
+  /* 设置层级为 10，位于其他元素上方 */
   z-index: 10;
+  /* 过渡效果，改变left属性时使用0.5秒的过渡时间 */
   transition: left 0.5s;
 }
 
+/* 切换导航栏时，移动到屏幕左侧（将其从屏幕外移入） */
 .navbar.change {
   left: 0;
 }
 
 .navbar-link {
+  /* 设置字体大小为 1.5rem， 字体粗细为 600 */
   font-size: 1.5rem;
   font-weight: 600;
   margin: 2rem 0;
+  /* 设置字体颜色为 #777 */
   color: #777;
+  /* 设置字体间距为 0.3rem， 字母转换为大写 */
   letter-spacing: 0.3rem;
   text-transform: uppercase;
+  /* 过渡效果，改变文字颜色时使用0.3秒的过渡时间 */
   transition: color 0.3s;
 }
 
+/* 鼠标悬停时的文字颜色 */
 .navbar-link:hover {
   color: #111;
 }
-/* End of Navbar */
 
-/* Common Section Styles */
+/* 基础样式 */
+/* 包装器占满父元素， 设定观察的视点距离为 50rem */
 .wrapper {
   width: 100%;
   perspective: 50rem;
 }
 
 section {
+  /* 宽度占满父元素， 高度为 100vh（可视区域高度）*/
   width: 100%;
   height: 100vh;
   background-color: #efefef;
+  /* 使用相对定位， 初始时位于屏幕左侧， 旋转中心为左侧 */
   position: relative;
   left: 0;
   margin-bottom: 3rem;
   transform-origin: left;
+  /* 设置阴影效果 */
   box-shadow: 0.5rem 0.5rem 1rem #aaa;
   padding: 5rem 0;
+  /* 过渡效果，改变left和transform属性时使用0.5秒的过渡时间 */
   transition: left 0.5s, transform 0.5s;
 }
 
 section.change {
+  /* 当点击 menu 按钮时，将 section 向右移动 15vw（可视区域宽度） */
   left: 15vw;
+  /* 当点击 menu 按钮时，绕Y轴旋转10度 */
   transform: rotateY(10deg);
 }
 
+/* 设定每一部分的标题样式 */
 .section-heading {
   font-size: 10rem;
   font-weight: bolder;
@@ -128,35 +175,39 @@ section.change {
   margin-bottom: 10rem;
   letter-spacing: 1rem;
   text-align: center;
+  /* 设置文字阴影效果 */
   text-shadow: 0.3rem 0.3rem 0.5rem #555;
 }
-/* End of Common Section Styles */
 
-/* Section-1 */
+/* 第一部分： 经典汽车图片 */
 .section-1 {
   flex-direction: column;
   background: url(images/bg-section1.jpg) center no-repeat;
+  /* 背景图片覆盖整个容器 */
   background-size: cover;
 }
 
+/* 设置第一部分的标题样式 */
 .section-1 .section-1-heading {
   margin-bottom: 3rem;
   text-transform: uppercase;
   text-shadow: 1rem 1rem 1rem #000, 2rem 2rem 2rem #111, 3rem 3rem 3rem #222;
 }
 
+/* 设置第一部分的图片样式 */
 .section-1-img {
   width: 70%;
 }
-/* End of Section-1 */
 
-/* Section 2 */
+/* 第二部分： 热门汽车 */
 .section-2 {
+  /* 使用弹性布局， 垂直排列子元素，子元素垂直平均分布 */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
+/* 设置第二部分热门汽车卡片的样式 */
 .card {
   width: 50rem;
   margin: 0 3rem;
@@ -167,55 +218,68 @@ section.change {
   transition: box-shadow 0.5s;
 }
 
+/* 鼠标悬停时的阴影效果 */
 .card:hover {
   box-shadow: 0.8rem 0.8rem 0.8rem #bbb;
 }
 
+/* 设置汽车名称的样式 */
 .car-name {
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
   color: #fff;
+  /* 使其位于卡片左上角 */
   position: absolute;
   top: 2rem;
   left: 2rem;
   z-index: 10;
 }
 
+/* 设置汽车图片的样式 */
 .card-img {
   width: 100%;
   opacity: 0.8;
+  /* 设置过渡效果为 0.5s */
   transition: opacity 0.5s;
 }
 
+/* 鼠标悬停时更改图片透明度 */
 .card:hover .card-img {
   opacity: 1;
 }
 
+/* 设置汽车价格的样式 */
 .car-price {
   font-size: 1.8rem;
   color: #777;
   margin: 0.5rem 0;
 }
 
+/* 设置查看汽车更多信息按钮的样式 */
 .card-btn {
   width: 100%;
   background-color: #fff;
   font-size: 1.7rem;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
+  /* 清除按钮边框 */
   border: none;
   margin-top: 1rem;
   padding: 0.5rem;
   color: #fff;
+  /* 设置文本阴影效果 */
   text-shadow: 0.1rem 0.1rem 0.3rem #000;
+  /* 设置按钮阴影效果 */
   box-shadow: 0.1rem 0.1rem 0.5rem #bbb;
+  /* 设置鼠标样式为手型 */
   cursor: pointer;
 }
-/* End of Section 2 */
 
-/* Section 3 */
+/* 第三部分： 视频展示 */
+
 .section-3 {
+  /* 使用弹性布局， 垂直排列子元素，子元素垂直平均分布 */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -223,38 +287,51 @@ section.change {
 }
 
 .video {
+  /* 设置视频宽度为 25%，左右边距为 2rem，圆角为 0.5rem */
   width: 25%;
   margin: 0 2rem;
   border-radius: 0.5rem;
+  /* 设置视频透明度为 0.8 */
   opacity: 0.8;
+  /* 设置视频阴影效果 */
   box-shadow: 0.3rem 0.3rem 0.5rem #111;
+  /* 设置过渡效果持续时间为0.5s */
   transition: all 0.5s;
 }
 
+
 .video:hover {
+  /* 鼠标悬停时，视频透明度为 1 */
   opacity: 1;
+  /* 鼠标悬停时，视频阴影效果更明显 */
   box-shadow: 0.5rem 0.5rem 1rem #111;
 }
-/* End of Section 3 */
 
-/* Section 4 */
+/* 第四部分： 图片展示 */
 .section-4 {
+  /* 使用弹性布局， 垂直排列子元素，在元素内部均匀分布空白 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+
+/* 设置图片展示架的样式 */
 .gallery {
   margin: 10rem 0;
   perspective: 10rem;
 }
 
+
 .gallery-shelf {
+  /* 设置图片展示架的宽度为 80%，高度为 3rem，背景颜色为蓝色 */
   width: 80%;
   height: 3rem;
   background-color: rgba(38, 126, 199, 0.8);
+  /* 设置左右外边距为auto，使其水平居中 */
   margin: auto;
   position: relative;
+  /* 设置图片展示架阴影效果 */
   box-shadow: 1rem 1rem 5rem #444;
 }
 
@@ -263,28 +340,40 @@ section.change {
   position: absolute;
   width: 100%;
   height: 10rem;
+  /* 设置背景颜色为带透明度的浅蓝色 */
   background-color: rgba(34, 152, 248, 0.7);
+  /* 设置顶部定位为-10rem，使其超出展示架上方 */
   top: -10rem;
+  /* 绕X轴旋转20度 */
   transform: rotateX(20deg);
+  /* 设置旋转的基点为底部 */
   transform-origin: bottom;
 }
 
+/* 设置展示架上的图片样式 */
 .gallery img {
+  /* 设置图片宽度为 15%，底部距离为 6rem，圆角为 0.5rem */
   width: 15%;
   position: absolute;
   bottom: 6rem;
+  border-radius: 0.5rem;
+  /* 向左平移50%并绕X轴旋转0.5度 */
   transform: translateX(-50%) rotateX(0.5deg);
   box-shadow: 0.2rem -0.2rem 0.5rem #888;
-  border-radius: 0.5rem;
+  /* 设置旋转的基点为底部 */
   transform-origin: bottom;
+  /* 设置过渡效果持续时间为0.3s */
   transition: all 0.3s;
 }
 
 .gallery img:hover {
+  /* 鼠标悬停时取消平移和旋转 */
   transform: translateX(-50%) rotateX(0);
+  /* 鼠标悬停时设置图片阴影效果 */
   box-shadow: 0 0.2rem 0.3rem #888;
 }
 
+/* 设置展示架上的图片位置 */
 .gallery-img-1 {
   left: 50%;
 }
@@ -296,10 +385,12 @@ section.change {
 .gallery-img-3 {
   left: 70%;
 }
-/* End of Section 4 */
 
-/* Responsive */
+/* 响应式布局 */
+
+/* 当视口宽度小于或等于1500px时应用的样式 */
 @media (max-width: 1500px) {
+  /* 导航栏样式：设定导航栏宽度为 20vw（可视区域宽度），将导航栏向左偏移20vw，隐藏在屏幕外 */
   .navbar {
     width: 20vw;
     padding: 2rem 0 0 2rem;
@@ -307,31 +398,38 @@ section.change {
   }
 
   .menu.change {
+    /* 当菜单按钮被点击时，将导航栏向右偏移20vw，显示在屏幕内 */
     left: 20vw;
   }
 
   section.change {
+    /* 当菜单按钮被点击时，将section向右偏移20vw，显示在屏幕内 */
     left: 20vw;
     transform: rotateY(15deg);
   }
 
+  /* 设置 section 字体大小为7rem */
   .section-heading {
     font-size: 7rem;
   }
 
   .section-1 {
+    /* 设置flex子项的间距均匀分布 */
     justify-content: space-evenly;
   }
 
   .section-2 {
+    /* 设置自动调整高度 */
     height: auto;
     padding: 5rem 0 10rem 0;
   }
 
   .cards-wrapper {
+    /* 设置卡片子项换行 */
     flex-wrap: wrap;
   }
 
+  /* 设置卡片宽度为 40rem，左右边距为 3rem */
   .card {
     width: 40rem;
     margin: 3rem;
@@ -341,12 +439,14 @@ section.change {
     padding: 5rem 3rem;
   }
 
+  /* 加宽视频宽度为 30% */
   .video {
     width: 30%;
     margin: 2rem;
   }
 
   .section-4 {
+    /* 自动调整高度 */
     height: auto;
   }
 
@@ -355,13 +455,16 @@ section.change {
   }
 
   .gallery-shelf {
+    /* 图片展示架宽度为90% */
     width: 90%;
   }
 
+  /* 设置图片展示架上的图片宽度为 20% */
   .gallery img {
     width: 20%;
   }
 
+  /* 设置展示架上的图片位置 */
   .gallery-img-2 {
     left: 25%;
   }
@@ -371,81 +474,101 @@ section.change {
   }
 }
 
+/* 当视口宽度小于或等于1000px时的媒体查询样式 */
 @media (max-width: 1000px) {
+  /* 取消页面向右的padding */
   body {
     padding-right: 0;
   }
 
   .navbar {
+    /* 导航栏宽度为视口宽度的25%，向左偏移25vw，隐藏在屏幕外 */
     width: 25vw;
     left: -25vw;
   }
 
+  /* 当菜单按钮被点击后，菜单栏向右滑动至视口内 */
   .menu.change {
     left: 25vw;
   }
 
+  /* 当菜单按钮被点击后，内容部分向右滑动至视口内 */
   section.change {
     left: 25vw;
+    /* 内容部分旋转20度 */
     transform: rotateY(20deg);
   }
 
+  /* 第一部分的图片宽度为父元素宽度的90% */
   .section-1-img {
     width: 90%;
   }
 
+  /* 第三部分的高度自适应内容 */
   .section-3 {
     height: auto;
   }
 
+  /* 视频部分的排列方向变为垂直方向 */
   .videos-wrapper {
     flex-direction: column;
   }
 
+  /* 视频宽度为 70%，上下边距为 3rem */
   .video {
     width: 70%;
     margin: 3rem 0;
   }
 }
 
+/* 当视口宽度小于或等于750px时的媒体查询样式 */
 @media (max-width: 750px) {
+  /* 导航栏宽度为视口宽度的30%，向左偏移30vw，隐藏在屏幕外 */
   .navbar {
     width: 30vw;
     left: -30vw;
   }
 
+  /* 当菜单按钮被点击后，菜单栏向右滑动至视口内 */
   .menu.change {
     left: 30vw;
   }
 
+  /* 当菜单按钮被点击后，内容部分向右滑动至视口内, 旋转25度 */
   section.change {
     left: 30vw;
     transform: rotateY(25deg);
   }
 
+  /* 更改每部分标题字体大小为5.5rem */
   .section-heading {
     font-size: 5.5rem;
   }
 
+  /* 第四部分上下左右内边距分别为6rem、0、1rem、0 */
   .section-4 {
     padding: 6rem 0 1rem 0;
   }
 
+  /* 图片展示部分的架子高度为1.5rem，宽度为95% */
   .gallery-shelf {
     height: 1.5rem;
     width: 95%;
   }
 
+  /* 图片展示部分的架子上方伪元素的高度为5rem，向上偏移5rem */
   .gallery-shelf::before {
     height: 5rem;
     top: -5rem;
   }
 
+  /* 图片展示部分的图片宽度为父元素宽度的25% */
   .gallery img {
     width: 25%;
     bottom: 4rem;
   }
 
+  /* 设置展示架上的图片位置 */
   .gallery-img-2 {
     left: 22%;
   }
@@ -455,46 +578,55 @@ section.change {
   }
 }
 
+/* 当视口宽度小于或等于600px时的媒体查询样式 */
 @media (max-width: 600px) {
+  /* 整个页面的字体大小为默认字体大小的55.5% */
   html {
     font-size: 55.5%;
   }
 
+  /* 导航栏宽度为视口宽度的40%，向左偏移40vw，隐藏在屏幕外 */
   .navbar {
     width: 40vw;
     left: -40vw;
   }
 
+  /* 当菜单按钮被点击后，菜单栏向右滑动至视口内 */
   .menu.change {
     left: 40vw;
   }
 
+  /* 当菜单按钮被点击后，内容部分向右滑动至视口内, 取消内容部分的旋转 */
   section.change {
     left: 0;
-    transform: rotateY(0);
+    transform: rotatey(0);
   }
 
+  /* 标题字体大小为4.5rem */
   .section-heading {
     font-size: 4.5rem;
   }
 
+  /* 第一部分的图片宽度为父元素宽度的100% */
   .section-1-img {
     width: 100%;
   }
 
+  /* 视频宽度为父元素宽度的100% */
   .video {
     width: 100%;
     margin: 2rem 0;
   }
 
+  /* 图片展示部分的上下边距为9rem */
   .gallery {
     margin: 9rem 0;
   }
 }
 
 @media (max-width: 400px) {
+  /* 图片展示部分的上下边距为9rem */
   html {
     font-size: 40%;
   }
 }
-/* End of Responsive */

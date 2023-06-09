@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,14 +11,13 @@
     />
 </head>
   <body>
-    <!-- Menu -->
+    <!-- 菜单按钮 -->
     <div class="menu target center">
       <div class="menu-line menu-line-1"></div>
       <div class="menu-line menu-line-2"></div>
     </div>
-    <!-- End of Menu -->
 
-    <!-- Navbar -->
+    <!-- 导航栏 -->
     <nav class="navbar target">
       <a href="#home" class="navbar-link">Home</a>
       <a href="#popular-cars" class="navbar-link">Popular Cars</a>
@@ -26,18 +25,16 @@
       <a href="#image-gallery" class="navbar-link">Image Gallery</a>
       <a href="#contact" class="navbar-link">Contact</a>
     </nav>
-    <!-- End of Navbar -->
 
-    <!-- Section 1 -->
+    <!-- 第一部分： 经典汽车图片 -->
     <div class="wrapper">
       <section class="section-1 target center" id="home">
         <h1 class="section-heading section-1-heading">Classic Cars</h1>
         <img src="images/car-section1.png" class="section-1-img" />
       </section>
     </div>
-    <!-- End of Section 1 -->
 
-    <!-- Section 2 -->
+    <!-- 第二部分： 热门汽车 -->
     <div class="wrapper">
       <section class="section-2 target" id="popular-cars">
         <h1 class="section-heading">Popular Cars</h1>
@@ -63,13 +60,13 @@
         </div>
       </section>
     </div>
-    <!-- End of Section 2 -->
 
-    <!-- Section 3 -->
+    <!-- 第三部分： 视频展示 -->
     <div class="wrapper">
       <section class="section-3 target" id="video-gallery">
         <h1 class="section-heading">Video Gallery</h1>
         <div class="videos-wrapper center">
+          <!-- 设置视频静音，循环播放 -->
           <video src="images/car-video-1.mp4" muted loop class="video"></video>
           <video src="images/car-video-2.mp4" muted loop class="video"></video>
           <video src="images/car-video-3.mp4" muted loop class="video"></video>
@@ -81,9 +78,8 @@
         </div>
       </section>
     </div>
-    <!-- End of Section 3 -->
 
-    <!-- Section 4 -->
+    <!-- 第四部分： 图片展示 -->
     <div class="wrapper">
       <section class="section-4 target" id="image-gallery">
         <h1 class="section-heading">Image Gallery</h1>
@@ -101,7 +97,6 @@
         </div>
       </section>
     </div>
-    <!-- End of Section 4 -->
 
     <script src="script.js"></script>
   </body>
